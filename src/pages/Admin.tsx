@@ -189,7 +189,7 @@ const Admin = () => {
                             <Badge variant={appointment.status === 'confirmed' ? "default" : "outline"} className="w-fit">
                               {appointment.status}
                             </Badge>
-                            <Badge variant={appointment.paymentStatus === 'completed' ? "success" : "outline"} className="w-fit bg-green-100 text-green-800 hover:bg-green-100">
+                            <Badge variant="secondary" className="w-fit bg-green-100 text-green-800 hover:bg-green-100">
                               {appointment.paymentStatus}
                             </Badge>
                           </div>
