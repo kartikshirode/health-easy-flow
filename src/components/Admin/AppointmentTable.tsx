@@ -2,14 +2,56 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Clock, User, Phone } from 'lucide-react';
-import { Appointment } from '@/context/AppointmentContext';
+import { CalendarDays, Clock, User, Phone, Eye, Trash } from 'lucide-react';
+import { FirebaseAppointment } from '@/services/appointmentService';
+import { toast } from '@/hooks/use-toast';
+import { deleteAppointment } from '@/services/appointmentService';
+import { cn } from '@/lib/utils';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface AppointmentTableProps {
-  appointments: Appointment[];
+  appointments: FirebaseAppointment[];
+  isLoading?: boolean;
 }
 
-const AppointmentTable = ({ appointments }: AppointmentTableProps) => {
+const AppointmentTable = ({ appointments, isLoading = false }: AppointmentTableProps) => {
+  const handleDelete = async (id: string | undefined) => {
+    if (!id) return;
+    
+    try {
+      await deleteAppointment(id);
+      toast({
+        title: "Appointment Deleted",
+        description: "The appointment has been successfully deleted",
+      });
+    } catch (error) {
+      console.error("Error deleting appointment:", error);
+      toast({
+        title: "Error",
+        description: "Failed to delete appointment",
+        variant: "destructive",
+      });
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center p-8">
+        <p className="text-gray-500">Loading appointments...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200">
@@ -74,15 +116,49 @@ const AppointmentTable = ({ appointments }: AppointmentTableProps) => {
                     <Badge variant={appointment.status === 'confirmed' ? "default" : "outline"} className="w-fit">
                       {appointment.status}
                     </Badge>
-                    <Badge variant="secondary" className="w-fit bg-green-100 text-green-800 hover:bg-green-100">
+                    <Badge 
+                      variant="secondary"
+                      className={cn("w-fit", {
+                        "bg-green-100 text-green-800 hover:bg-green-100": appointment.paymentStatus === 'completed',
+                        "bg-yellow-100 text-yellow-800 hover:bg-yellow-100": appointment.paymentStatus === 'pending',
+                        "bg-red-100 text-red-800 hover:bg-red-100": appointment.paymentStatus === 'failed'
+                      })}
+                    >
                       {appointment.paymentStatus}
                     </Badge>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
+                  <div className="flex space-x-2">
+                    <Button variant="outline" size="sm">
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    
+                    <AlertDialog>
+                      <AlertDialogTrigger asChild>
+                        <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50">
+                          <Trash className="h-4 w-4" />
+                        </Button>
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            This will permanently delete this appointment and cannot be undone.
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancel</AlertDialogCancel>
+                          <AlertDialogAction 
+                            onClick={() => handleDelete(appointment.id)}
+                            className="bg-red-600 hover:bg-red-700"
+                          >
+                            Delete
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                  </div>
                 </td>
               </tr>
             ))
