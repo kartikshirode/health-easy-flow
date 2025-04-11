@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { ModeToggle } from "@/components/mode-toggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,9 +56,12 @@ const Navbar = () => {
             >
               Admin
             </Link>
-            <Button asChild className="ml-4">
-              <Link to="/booking">Book Appointment</Link>
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button asChild className="ml-4">
+                <Link to="/booking">Book Appointment</Link>
+              </Button>
+              <ModeToggle />
+            </div>
           </div>
           
           <div className="flex md:hidden items-center">
@@ -112,13 +116,18 @@ const Navbar = () => {
             >
               Admin
             </Link>
-            <Link
-              to="/booking"
-              className="block px-3 py-2 rounded-md text-base font-medium bg-health-primary text-white hover:bg-health-primary/90"
-              onClick={toggleMenu}
-            >
-              Book Appointment
-            </Link>
+            <div className="flex flex-col space-y-2">
+              <Link
+                to="/booking"
+                className="block px-3 py-2 rounded-md text-base font-medium bg-health-primary text-white hover:bg-health-primary/90"
+                onClick={toggleMenu}
+              >
+                Book Appointment
+              </Link>
+              <div className="flex justify-center">
+                <ModeToggle />
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -127,3 +136,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
