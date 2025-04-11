@@ -5,11 +5,10 @@ import Home from "./Home";
 
 const Index = () => {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="health-theme-preference">
+    <ThemeProvider defaultTheme="dark" storageKey="health-theme-preference">
       <Home />
     </ThemeProvider>
   );
 };
 
 export default Index;
-

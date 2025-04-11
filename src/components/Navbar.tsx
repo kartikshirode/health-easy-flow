@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -16,12 +15,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white shadow-sm dark:bg-gray-900 dark:border-b dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-health-primary text-xl font-bold">HealthEasyFlow</span>
+              <span className="text-health-primary text-xl font-bold dark:text-white">MediFlow Connect</span>
             </Link>
           </div>
           
@@ -30,8 +29,8 @@ const Navbar = () => {
               to="/" 
               className={`px-3 py-2 rounded-md text-sm font-medium ${
                 isActive('/') 
-                  ? 'text-health-primary' 
-                  : 'text-gray-700 hover:text-health-primary'
+                  ? 'text-health-primary dark:text-health-primary' 
+                  : 'text-gray-700 hover:text-health-primary dark:text-gray-300 dark:hover:text-health-primary'
               }`}
             >
               Home
@@ -40,8 +39,8 @@ const Navbar = () => {
               to="/about" 
               className={`px-3 py-2 rounded-md text-sm font-medium ${
                 isActive('/about') 
-                  ? 'text-health-primary' 
-                  : 'text-gray-700 hover:text-health-primary'
+                  ? 'text-health-primary dark:text-health-primary' 
+                  : 'text-gray-700 hover:text-health-primary dark:text-gray-300 dark:hover:text-health-primary'
               }`}
             >
               About
@@ -50,8 +49,8 @@ const Navbar = () => {
               to="/admin" 
               className={`px-3 py-2 rounded-md text-sm font-medium ${
                 isActive('/admin') 
-                  ? 'text-health-primary' 
-                  : 'text-gray-700 hover:text-health-primary'
+                  ? 'text-health-primary dark:text-health-primary' 
+                  : 'text-gray-700 hover:text-health-primary dark:text-gray-300 dark:hover:text-health-primary'
               }`}
             >
               Admin
@@ -79,7 +78,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -136,4 +134,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

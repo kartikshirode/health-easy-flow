@@ -24,8 +24,10 @@ export { app, auth, db };
 
 // Function to setup invisible reCAPTCHA
 export const setupRecaptcha = (phoneNumber: string) => {
-  const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-    'size': 'invisible',
-  });
+  const recaptchaVerifier = new RecaptchaVerifier(
+    'recaptcha-container',
+    { size: 'invisible' },
+    auth
+  );
   return recaptchaVerifier;
 };

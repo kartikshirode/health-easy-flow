@@ -17,7 +17,7 @@ const Home = () => {
                 Your Health, Our Priority
               </h1>
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl">
-                Schedule your appointment with Dr. Sarah Johnson, a board-certified specialist with over 15 years of experience. 
+                Schedule your appointment with Dr. Parikshit Shirode, a board-certified specialist with over 15 years of experience. 
                 No login required - book your visit in minutes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -104,17 +104,17 @@ const Home = () => {
             <div className="md:w-1/3">
               <img 
                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" 
-                alt="Dr. Sarah Johnson" 
+                alt="Dr. Parikshit Shirode" 
                 className="rounded-full w-64 h-64 object-cover mx-auto border-4 border-white dark:border-gray-700 shadow-lg"
               />
             </div>
             <div className="md:w-2/3 space-y-4">
-              <h2 className="text-3xl font-bold text-health-dark dark:text-white">Meet Dr. Sarah Johnson</h2>
+              <h2 className="text-3xl font-bold text-health-dark dark:text-white">Meet Dr. Parikshit Shirode</h2>
               <p className="text-gray-700 dark:text-gray-300 text-lg">
-                Dr. Sarah Johnson is a board-certified physician specializing in family medicine. With over 15 years of experience, she provides comprehensive care for patients of all ages.
+                Dr. Parikshit Shirode is a board-certified physician specializing in family medicine. With over 15 years of experience, he provides comprehensive care for patients of all ages.
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                Dr. Johnson completed her medical degree at Johns Hopkins University School of Medicine and her residency at Mayo Clinic. She is committed to providing patient-centered care with a focus on preventive health and chronic disease management.
+                Dr. Shirode completed his medical degree at Johns Hopkins University School of Medicine and his residency at Mayo Clinic. He is committed to providing patient-centered care with a focus on preventive health and chronic disease management.
               </p>
               <div className="pt-4 flex flex-col sm:flex-row gap-6">
                 <div className="flex items-center">
