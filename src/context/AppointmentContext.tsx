@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type TimeSlot = {
@@ -58,6 +57,25 @@ const defaultPatientInfo: PatientInfo = {
 // Create the context
 const AppointmentContext = createContext<AppointmentContextType | undefined>(undefined);
 
+// Enhanced medical issues for a PhD-level doctor
+const sampleMedicalIssues: MedicalIssue[] = [
+  { id: '1', name: 'Chronic Pain Management', description: 'Persistent pain requiring specialized attention' },
+  { id: '2', name: 'Neurological Disorders', description: 'Migraines, seizures, or movement disorders' },
+  { id: '3', name: 'Digestive & Gastrointestinal Issues', description: 'IBS, GERD, or other digestive system disorders' },
+  { id: '4', name: 'Hormonal Imbalances', description: 'Thyroid disorders, diabetes, or adrenal issues' },
+  { id: '5', name: 'Autoimmune Conditions', description: 'Rheumatoid arthritis, lupus, or other autoimmune disorders' },
+  { id: '6', name: 'Cardiovascular Concerns', description: 'Heart conditions, hypertension, or vascular issues' },
+  { id: '7', name: 'Respiratory Problems', description: 'Asthma, COPD, or other respiratory conditions' },
+  { id: '8', name: 'Mental Health Consultation', description: 'Anxiety, depression, or stress-related conditions' },
+  { id: '9', name: 'Nutritional Deficiencies', description: 'Vitamin or mineral imbalances affecting health' },
+  { id: '10', name: 'Sleep Disorders', description: 'Insomnia, sleep apnea, or other sleep-related issues' },
+  { id: '11', name: 'Dermatological Conditions', description: 'Chronic skin conditions requiring advanced treatment' },
+  { id: '12', name: 'Metabolic Disorders', description: 'Conditions affecting metabolism and energy production' },
+  { id: '13', name: 'Post-Surgical Recovery', description: 'Medical support during recovery from surgery' },
+  { id: '14', name: 'Preventative Health Screening', description: 'Comprehensive health assessment and screening' },
+  { id: '15', name: 'Other Medical Issue', description: 'Any other medical concern not listed above' },
+];
+
 // Sample data for development
 const sampleTimeSlots: TimeSlot[] = [
   { id: '1', time: '09:00 AM', available: true },
@@ -68,15 +86,6 @@ const sampleTimeSlots: TimeSlot[] = [
   { id: '6', time: '03:00 PM', available: true },
   { id: '7', time: '04:00 PM', available: false },
   { id: '8', time: '05:00 PM', available: true },
-];
-
-const sampleMedicalIssues: MedicalIssue[] = [
-  { id: '1', name: 'General Checkup', description: 'Routine health examination' },
-  { id: '2', name: 'Fever and Cold', description: 'Symptoms related to fever, cold or flu' },
-  { id: '3', name: 'Stomach Issues', description: 'Problems related to digestion or stomach pain' },
-  { id: '4', name: 'Joint Pain', description: 'Issues related to joints, muscles or bone pain' },
-  { id: '5', name: 'Skin Problems', description: 'Conditions affecting the skin' },
-  { id: '6', name: 'Other', description: 'Any other medical issue not listed above' },
 ];
 
 const sampleAppointments: Appointment[] = [
