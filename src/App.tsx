@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppointmentProvider } from "./context/AppointmentContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Index from "./pages/Index";
 import About from "./pages/About";
 import Booking from "./pages/Booking";
 import BookingConfirmation from "./pages/BookingConfirmation";
@@ -27,7 +27,7 @@ const App = () => (
             <Navbar />
             <main className="flex-grow">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/booking" element={<Booking />} />
                 <Route path="/booking/confirmation" element={<BookingConfirmation />} />

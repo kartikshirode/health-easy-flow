@@ -9,14 +9,14 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-health-light to-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-health-light to-white dark:from-health-dark dark:to-background py-16 md:py-24">
         <div className="health-container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2 space-y-6 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold text-health-dark">
+              <h1 className="text-4xl md:text-5xl font-bold text-health-dark dark:text-white">
                 Your Health, Our Priority
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 max-w-xl">
+              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl">
                 Schedule your appointment with Dr. Sarah Johnson, a board-certified specialist with over 15 years of experience. 
                 No login required - book your visit in minutes.
               </p>
@@ -41,55 +41,55 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-background">
         <div className="health-container">
-          <h2 className="text-3xl font-bold text-center mb-12 text-health-dark">Why Choose Us</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-health-dark dark:text-gray-200">Why Choose Us</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-none shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="p-3 bg-health-light rounded-full">
+                  <div className="p-3 bg-health-light dark:bg-health-primary/20 rounded-full">
                     <CalendarDays className="h-8 w-8 text-health-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl">Easy Scheduling</h3>
-                  <p className="text-gray-600">Book appointments online without creating an account</p>
+                  <h3 className="font-semibold text-xl dark:text-white">Easy Scheduling</h3>
+                  <p className="text-gray-600 dark:text-gray-300">Book appointments online without creating an account</p>
                 </div>
               </CardContent>
             </Card>
             
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-none shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="p-3 bg-health-light rounded-full">
+                  <div className="p-3 bg-health-light dark:bg-health-primary/20 rounded-full">
                     <Clock className="h-8 w-8 text-health-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl">Minimal Wait Time</h3>
-                  <p className="text-gray-600">Respect for your schedule with punctual appointments</p>
+                  <h3 className="font-semibold text-xl dark:text-white">Minimal Wait Time</h3>
+                  <p className="text-gray-600 dark:text-gray-300">Respect for your schedule with punctual appointments</p>
                 </div>
               </CardContent>
             </Card>
             
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-none shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="p-3 bg-health-light rounded-full">
+                  <div className="p-3 bg-health-light dark:bg-health-primary/20 rounded-full">
                     <UserRound className="h-8 w-8 text-health-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl">Personalized Care</h3>
-                  <p className="text-gray-600">Treatment plans tailored to your specific needs</p>
+                  <h3 className="font-semibold text-xl dark:text-white">Personalized Care</h3>
+                  <p className="text-gray-600 dark:text-gray-300">Treatment plans tailored to your specific needs</p>
                 </div>
               </CardContent>
             </Card>
             
-            <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-none shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="p-3 bg-health-light rounded-full">
+                  <div className="p-3 bg-health-light dark:bg-health-primary/20 rounded-full">
                     <Award className="h-8 w-8 text-health-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl">Expert Physician</h3>
-                  <p className="text-gray-600">Board-certified with years of specialized experience</p>
+                  <h3 className="font-semibold text-xl dark:text-white">Expert Physician</h3>
+                  <p className="text-gray-600 dark:text-gray-300">Board-certified with years of specialized experience</p>
                 </div>
               </CardContent>
             </Card>
@@ -98,32 +98,32 @@ const Home = () => {
       </section>
 
       {/* Doctor Profile Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="health-container">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3">
               <img 
                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" 
                 alt="Dr. Sarah Johnson" 
-                className="rounded-full w-64 h-64 object-cover mx-auto border-4 border-white shadow-lg"
+                className="rounded-full w-64 h-64 object-cover mx-auto border-4 border-white dark:border-gray-700 shadow-lg"
               />
             </div>
             <div className="md:w-2/3 space-y-4">
-              <h2 className="text-3xl font-bold text-health-dark">Meet Dr. Sarah Johnson</h2>
-              <p className="text-gray-700 text-lg">
+              <h2 className="text-3xl font-bold text-health-dark dark:text-white">Meet Dr. Sarah Johnson</h2>
+              <p className="text-gray-700 dark:text-gray-300 text-lg">
                 Dr. Sarah Johnson is a board-certified physician specializing in family medicine. With over 15 years of experience, she provides comprehensive care for patients of all ages.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 Dr. Johnson completed her medical degree at Johns Hopkins University School of Medicine and her residency at Mayo Clinic. She is committed to providing patient-centered care with a focus on preventive health and chronic disease management.
               </p>
               <div className="pt-4 flex flex-col sm:flex-row gap-6">
                 <div className="flex items-center">
                   <Phone className="mr-2 h-5 w-5 text-health-primary" />
-                  <span>(123) 456-7890</span>
+                  <span className="dark:text-gray-300">(123) 456-7890</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="mr-2 h-5 w-5 text-health-primary" />
-                  <span>123 Medical Center Drive, Healthville</span>
+                  <span className="dark:text-gray-300">123 Medical Center Drive, Healthville</span>
                 </div>
               </div>
             </div>
