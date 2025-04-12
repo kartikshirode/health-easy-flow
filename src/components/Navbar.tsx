@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -64,9 +65,10 @@ const Navbar = () => {
           </div>
           
           <div className="flex md:hidden items-center">
+            <ModeToggle />
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-health-primary focus:outline-none"
+              className="inline-flex items-center justify-center p-2 ml-2 rounded-md text-gray-700 hover:text-health-primary focus:outline-none dark:text-gray-300"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" aria-hidden="true" />
@@ -85,8 +87,8 @@ const Navbar = () => {
               to="/"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 isActive('/') 
-                  ? 'bg-health-light text-health-primary' 
-                  : 'text-gray-700 hover:bg-health-light hover:text-health-primary'
+                  ? 'bg-health-light text-health-primary dark:bg-gray-800 dark:text-health-primary' 
+                  : 'text-gray-700 hover:bg-health-light hover:text-health-primary dark:text-gray-300 dark:hover:bg-gray-800'
               }`}
               onClick={toggleMenu}
             >
@@ -96,8 +98,8 @@ const Navbar = () => {
               to="/about"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 isActive('/about') 
-                  ? 'bg-health-light text-health-primary' 
-                  : 'text-gray-700 hover:bg-health-light hover:text-health-primary'
+                  ? 'bg-health-light text-health-primary dark:bg-gray-800 dark:text-health-primary' 
+                  : 'text-gray-700 hover:bg-health-light hover:text-health-primary dark:text-gray-300 dark:hover:bg-gray-800'
               }`}
               onClick={toggleMenu}
             >
@@ -107,14 +109,14 @@ const Navbar = () => {
               to="/admin"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 isActive('/admin') 
-                  ? 'bg-health-light text-health-primary' 
-                  : 'text-gray-700 hover:bg-health-light hover:text-health-primary'
+                  ? 'bg-health-light text-health-primary dark:bg-gray-800 dark:text-health-primary' 
+                  : 'text-gray-700 hover:bg-health-light hover:text-health-primary dark:text-gray-300 dark:hover:bg-gray-800'
               }`}
               onClick={toggleMenu}
             >
               Admin
             </Link>
-            <div className="flex flex-col space-y-2">
+            <div className="pt-2">
               <Link
                 to="/booking"
                 className="block px-3 py-2 rounded-md text-base font-medium bg-health-primary text-white hover:bg-health-primary/90"
@@ -122,9 +124,6 @@ const Navbar = () => {
               >
                 Book Appointment
               </Link>
-              <div className="flex justify-center">
-                <ModeToggle />
-              </div>
             </div>
           </div>
         </div>
