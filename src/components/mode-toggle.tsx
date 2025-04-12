@@ -48,7 +48,7 @@ export function ModeToggle() {
             <line x1="12" y1="17" x2="12" y2="21" />
           </svg>
           System
-        </DropMenuItem>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
