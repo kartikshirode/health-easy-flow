@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CalendarDays, Clock, UserRound, Award, Phone, MapPin, GraduationCap, FileText, HeartPulse, Stethoscope, BookOpen, Globe, Users, Star, Book } from 'lucide-react';
-
 const Home = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-health-light to-white dark:from-health-dark dark:to-background py-16 md:py-24">
         <div className="health-container">
@@ -33,11 +31,7 @@ const Home = () => {
               </div>
             </div>
             <div className="md:w-1/2 p-4">
-              <img 
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2978&auto=format&fit=crop" 
-                alt="Dr. Parikshit Shirode in professional setting" 
-                className="rounded-2xl shadow-xl w-full object-cover h-[400px]"
-              />
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2978&auto=format&fit=crop" alt="Dr. Parikshit Shirode in professional setting" className="rounded-2xl shadow-xl w-full object-cover h-[400px]" />
             </div>
           </div>
         </div>
@@ -66,17 +60,7 @@ const Home = () => {
           </div>
           
           {/* Available Times */}
-          <div className="max-w-4xl mx-auto mb-12 bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-soft">
-            <h3 className="text-xl font-semibold mb-4 text-center text-health-dark dark:text-white">Available Consultation Times</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {['Mon 9-5', 'Tue 10-6', 'Wed 9-5', 'Thu 10-6', 'Fri 9-4', 'Sat 10-2'].map((day) => (
-                <div key={day} className="text-center p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
-                  <CalendarDays className="h-5 w-5 mx-auto mb-1 text-health-primary" />
-                  <span className="text-sm font-medium dark:text-gray-200">{day}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -145,15 +129,9 @@ const Home = () => {
         <div className="health-container">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3">
-              <img 
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" 
-                alt="Dr. Parikshit Shirode" 
-                className="rounded-full w-64 h-64 object-cover mx-auto border-4 border-white dark:border-gray-700 shadow-lg"
-              />
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" alt="Dr. Parikshit Shirode" className="rounded-full w-64 h-64 object-cover mx-auto border-4 border-white dark:border-gray-700 shadow-lg" />
               <div className="flex justify-center mt-4 space-x-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                ))}
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />)}
               </div>
               <p className="text-center text-sm mt-2 text-gray-600 dark:text-gray-400">4.9 out of 5 from 200+ patients</p>
             </div>
@@ -198,29 +176,22 @@ const Home = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                name: "Robert Chen",
-                role: "Patient for 3 years",
-                comment: "Dr. Shirode's expertise in integrative medicine has completely transformed my approach to managing my chronic condition."
-              },
-              {
-                name: "Anita Patel",
-                role: "Research Collaborator",
-                comment: "Working with Dr. Shirode on multiple clinical studies has been enlightening. His methodical approach and insights are invaluable."
-              },
-              {
-                name: "Michael Johnson",
-                role: "Patient",
-                comment: "The personalized care plan Dr. Shirode developed for me was comprehensive and effective. I'm grateful for his thorough approach."
-              }
-            ].map((testimonial, idx) => (
-              <Card key={idx} className="text-left shadow-md dark:bg-gray-800 rounded-2xl overflow-hidden border-none">
+            {[{
+            name: "Robert Chen",
+            role: "Patient for 3 years",
+            comment: "Dr. Shirode's expertise in integrative medicine has completely transformed my approach to managing my chronic condition."
+          }, {
+            name: "Anita Patel",
+            role: "Research Collaborator",
+            comment: "Working with Dr. Shirode on multiple clinical studies has been enlightening. His methodical approach and insights are invaluable."
+          }, {
+            name: "Michael Johnson",
+            role: "Patient",
+            comment: "The personalized care plan Dr. Shirode developed for me was comprehensive and effective. I'm grateful for his thorough approach."
+          }].map((testimonial, idx) => <Card key={idx} className="text-left shadow-md dark:bg-gray-800 rounded-2xl overflow-hidden border-none">
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />)}
                   </div>
                   <p className="italic text-gray-700 dark:text-gray-300 mb-4">"{testimonial.comment}"</p>
                   <div className="flex items-center">
@@ -233,8 +204,7 @@ const Home = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -308,8 +278,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
