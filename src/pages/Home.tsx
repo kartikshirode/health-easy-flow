@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { CalendarDays, Clock, UserRound, Award, Phone, MapPin, GraduationCap, FileText, HeartPulse, Stethoscope, BookOpen, Globe, Users, Star, Book, Certificate } from 'lucide-react';
+import { CalendarDays, Clock, UserRound, Award, Phone, MapPin, GraduationCap, FileText, HeartPulse, Stethoscope, BookOpen, Globe, Users, Star, Book } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -130,7 +129,7 @@ const Home = () => {
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="p-3 bg-health-light dark:bg-health-primary/20 rounded-full">
-                    <Certificate className="h-8 w-8 text-health-primary" />
+                    <Award className="h-8 w-8 text-health-primary" />
                   </div>
                   <h3 className="font-semibold text-xl dark:text-white">Academic Excellence</h3>
                   <p className="text-gray-600 dark:text-gray-300">Bringing rigorous academic standards to everyday clinical practice with evidence-based approaches.</p>
