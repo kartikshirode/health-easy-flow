@@ -16,19 +16,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm dark:bg-gray-900 dark:border-b dark:border-gray-800">
+    <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-900 dark:border-b dark:border-gray-800 backdrop-blur-md bg-white/90 dark:bg-gray-900/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-health-primary text-xl font-bold dark:text-white">MediFlow Connect</span>
+              <span className="text-health-primary text-xl font-bold dark:text-white font-heading">MediFlow Connect</span>
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             <Link 
               to="/" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive('/') 
                   ? 'text-health-primary dark:text-health-primary' 
                   : 'text-gray-700 hover:text-health-primary dark:text-gray-300 dark:hover:text-health-primary'
@@ -38,7 +38,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/about" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive('/about') 
                   ? 'text-health-primary dark:text-health-primary' 
                   : 'text-gray-700 hover:text-health-primary dark:text-gray-300 dark:hover:text-health-primary'
@@ -48,7 +48,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/admin" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive('/admin') 
                   ? 'text-health-primary dark:text-health-primary' 
                   : 'text-gray-700 hover:text-health-primary dark:text-gray-300 dark:hover:text-health-primary'
@@ -57,7 +57,7 @@ const Navbar = () => {
               Admin
             </Link>
             <div className="flex items-center space-x-2">
-              <Button asChild className="ml-4">
+              <Button asChild className="btn-primary rounded-2xl shadow-button">
                 <Link to="/booking">Book Appointment</Link>
               </Button>
               <ModeToggle />
@@ -119,7 +119,7 @@ const Navbar = () => {
             <div className="pt-2">
               <Link
                 to="/booking"
-                className="block px-3 py-2 rounded-md text-base font-medium bg-health-primary text-white hover:bg-health-primary/90"
+                className="block px-3 py-2 rounded-2xl text-base font-medium bg-health-primary text-white hover:bg-health-primary/90 shadow-button"
                 onClick={toggleMenu}
               >
                 Book Appointment
