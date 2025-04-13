@@ -43,10 +43,10 @@ const TimeSlotSelection = () => {
       <CardContent className="pt-6">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-center mb-3">Select Appointment Time</h2>
-          <p className="text-gray-600 dark:text-gray-300 text-center mb-2">
+          <p className="text-gray-600 dark:text-gray-300 text-center mb-4">
             Please select an available time slot for your appointment
           </p>
-          <div className="flex items-center justify-center gap-2 text-health-primary mb-6">
+          <div className="flex items-center justify-center gap-2 text-health-primary mb-8 border border-health-primary/20 bg-health-primary/5 py-3 px-4 rounded-lg">
             <Calendar className="h-5 w-5" />
             <span className="font-medium">{new Date().toLocaleDateString('en-US', { 
               weekday: 'long', 
@@ -57,8 +57,8 @@ const TimeSlotSelection = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg p-4 mb-6">
-          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Morning Slots</h3>
+        <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg p-5 mb-6">
+          <h3 className="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-4">Morning Slots</h3>
           <motion.div 
             className="grid grid-cols-2 sm:grid-cols-3 gap-3"
             variants={container}
@@ -86,8 +86,8 @@ const TimeSlotSelection = () => {
           </motion.div>
         </div>
 
-        <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Afternoon Slots</h3>
+        <div className="bg-gray-50 dark:bg-gray-700/30 rounded-lg p-5">
+          <h3 className="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-4">Afternoon Slots</h3>
           <motion.div 
             className="grid grid-cols-2 sm:grid-cols-3 gap-3"
             variants={container}
@@ -122,7 +122,7 @@ const TimeSlotSelection = () => {
         )}
       </CardContent>
 
-      <CardFooter className="flex justify-between mt-4">
+      <CardFooter className="flex justify-between mt-4 pt-4 border-t">
         <Button variant="outline" onClick={handleBack}>
           Back
         </Button>

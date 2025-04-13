@@ -49,7 +49,7 @@ const Booking = () => {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="flex justify-center mb-10 relative"
+          className="flex justify-center mb-16 relative"
         >
           <div className="flex items-center relative z-10">
             {[1, 2, 3].map((step, index) => (
@@ -60,9 +60,7 @@ const Booking = () => {
                   {currentStep > step ? (
                     <CalendarCheck className="h-6 w-6" />
                   ) : (
-                    <React.Fragment>
-                      {stepIcons[index]}
-                    </React.Fragment>
+                    stepIcons[index]
                   )}
                 </div>
                 {index < 2 && (
@@ -73,10 +71,10 @@ const Booking = () => {
               </React.Fragment>
             ))}
           </div>
-          <div className="absolute top-16 left-1/2 transform -translate-x-1/2 text-xs text-gray-500 dark:text-gray-400 flex w-full justify-between px-12 max-w-md">
-            <span className={currentStep >= 1 ? "text-health-primary font-medium" : ""}>Patient Info</span>
-            <span className={currentStep >= 2 ? "text-health-primary font-medium" : ""}>Select Time</span>
-            <span className={currentStep >= 3 ? "text-health-primary font-medium" : ""}>Payment</span>
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 text-xs text-gray-500 dark:text-gray-400 flex w-full justify-between px-6 max-w-md">
+            <span className={`${currentStep >= 1 ? "text-health-primary font-medium" : ""} whitespace-nowrap`}>Patient Info</span>
+            <span className={`${currentStep >= 2 ? "text-health-primary font-medium" : ""} whitespace-nowrap`}>Select Time</span>
+            <span className={`${currentStep >= 3 ? "text-health-primary font-medium" : ""} whitespace-nowrap`}>Payment</span>
           </div>
         </motion.div>
 
