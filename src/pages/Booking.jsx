@@ -48,9 +48,7 @@ const Booking = () => {
           <h1 className="text-3xl font-bold text-center text-health-dark dark:text-white mb-3">
             Book Your Appointment
           </h1>
-          <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            Complete the steps below to schedule your visit with Dr. Sarah Johnson
-          </p>
+          <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">Complete the steps below to schedule your visit with Dr. Sarah Johnson</p>
         </motion.div>
 
         <motion.div initial="hidden" animate="visible" variants={fadeIn} className="flex justify-center mb-20 relative">
@@ -71,7 +69,7 @@ const Booking = () => {
         </motion.div>
 
         <AnimatePresence mode="wait">
-          <motion.div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden step-transition" initial="hidden" animate="visible" exit="exit" variants={stepVariants} key={currentStep}>
+          <motion.div initial="hidden" animate="visible" exit="exit" variants={stepVariants} key={currentStep} className="bg-white dark:bg-gray-800 shadow-lg overflow-hidden step-transition py-0 my-[36px] rounded-2xl">
             {currentStep === 1 && <PatientInfoForm />}
             {currentStep === 2 && <TimeSlotSelection />}
             {currentStep === 3 && <PaymentSection />}
