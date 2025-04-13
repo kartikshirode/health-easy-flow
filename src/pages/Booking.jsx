@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAppointment } from '@/context/AppointmentContext';
 import PatientInfoForm from '@/components/BookingSteps/PatientInfoForm';
@@ -28,8 +27,9 @@ const Booking = () => {
     <CreditCard className="h-5 w-5" key="credit-card" />
   ];
 
-  // Labels for the steps
-  const stepLabels = ["Patient Info", "Select Time", "Payment"];
+  // Updated labels for the steps.
+  // Changed "Select Time" to "Select Slot" to avoid any undesired placeholder text.
+  const stepLabels = ["Patient Info", "Select Slot", "Payment"];
 
   return (
     <div className="min-h-screen py-12 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -57,9 +57,11 @@ const Booking = () => {
           <div className="flex items-center relative z-10">
             {[1, 2, 3].map((step, index) => (
               <React.Fragment key={step}>
-                <div className={`flex items-center justify-center h-12 w-12 rounded-full ${
-                  currentStep >= step ? 'bg-health-primary shadow-lg' : 'bg-gray-300'
-                } text-white font-bold transition-all duration-300`}>
+                <div
+                  className={`flex items-center justify-center h-12 w-12 rounded-full ${
+                    currentStep >= step ? 'bg-health-primary shadow-lg' : 'bg-gray-300'
+                  } text-white font-bold transition-all duration-300`}
+                >
                   {currentStep > step ? (
                     <CalendarCheck className="h-6 w-6" />
                   ) : (
@@ -67,9 +69,11 @@ const Booking = () => {
                   )}
                 </div>
                 {index < 2 && (
-                  <div className={`w-24 h-1 ${
-                    currentStep > step ? 'bg-health-primary' : 'bg-gray-300'
-                  } transition-all duration-500`}></div>
+                  <div
+                    className={`w-24 h-1 ${
+                      currentStep > step ? 'bg-health-primary' : 'bg-gray-300'
+                    } transition-all duration-500`}
+                  ></div>
                 )}
               </React.Fragment>
             ))}
@@ -82,7 +86,9 @@ const Booking = () => {
                 <div 
                   key={index} 
                   className={`text-center w-24 ${
-                    currentStep >= index + 1 ? "text-health-primary font-medium" : "text-gray-500 dark:text-gray-400"
+                    currentStep >= index + 1
+                      ? "text-health-primary font-medium"
+                      : "text-gray-500 dark:text-gray-400"
                   }`}
                 >
                   {label}
