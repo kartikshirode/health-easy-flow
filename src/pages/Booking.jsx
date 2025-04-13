@@ -1,10 +1,10 @@
+
 import React from 'react';
 import { useAppointment } from '@/context/AppointmentContext';
 import PatientInfoForm from '@/components/BookingSteps/PatientInfoForm';
 import TimeSlotSelection from '@/components/BookingSteps/TimeSlotSelection';
 import PaymentSection from '@/components/BookingSteps/PaymentSection';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Clock, User, CreditCard, CalendarCheck } from 'lucide-react';
 
 const Booking = () => {
   const { currentStep } = useAppointment();
@@ -20,15 +20,6 @@ const Booking = () => {
     exit: { opacity: 0, x: -20, transition: { duration: 0.3 } }
   };
 
-  // Icons for each step
-  const stepIcons = [
-    <User className="h-5 w-5" key="user" />,
-    <Clock className="h-5 w-5" key="clock" />,
-    <CreditCard className="h-5 w-5" key="credit-card" />
-  ];
-
-  // Updated labels for the steps.
-  // Changed "Select Time" to "Select Slot" to avoid any undesired placeholder text.
   const stepLabels = ["Patient Info", "Select Slot", "Payment"];
 
   return (
@@ -59,14 +50,10 @@ const Booking = () => {
               <React.Fragment key={step}>
                 <div
                   className={`flex items-center justify-center h-12 w-12 rounded-full ${
-                    currentStep >= step ? 'bg-health-primary shadow-lg' : 'bg-gray-300'
-                  } text-white font-bold transition-all duration-300`}
+                    currentStep >= step ? 'bg-health-primary text-white' : 'bg-gray-300 text-gray-500'
+                  } font-bold transition-all duration-300`}
                 >
-                  {currentStep > step ? (
-                    <CalendarCheck className="h-6 w-6" />
-                  ) : (
-                    stepIcons[index]
-                  )}
+                  {step}
                 </div>
                 {index < 2 && (
                   <div
@@ -79,7 +66,6 @@ const Booking = () => {
             ))}
           </div>
           
-          {/* Step labels positioned correctly below the circles */}
           <div className="absolute top-16 left-0 right-0 flex justify-center">
             <div className="flex w-full max-w-md justify-between px-2">
               {stepLabels.map((label, index) => (
