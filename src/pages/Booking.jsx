@@ -28,6 +28,9 @@ const Booking = () => {
     <CreditCard className="h-5 w-5" key="credit-card" />
   ];
 
+  // Labels for the steps
+  const stepLabels = ["Patient Info", "Select Time", "Payment"];
+
   return (
     <div className="min-h-screen py-12 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-5xl mx-auto">
@@ -49,7 +52,7 @@ const Booking = () => {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="flex justify-center mb-16 relative"
+          className="flex justify-center mb-20 relative"
         >
           <div className="flex items-center relative z-10">
             {[1, 2, 3].map((step, index) => (
@@ -64,17 +67,28 @@ const Booking = () => {
                   )}
                 </div>
                 {index < 2 && (
-                  <div className={`w-20 h-1 ${
+                  <div className={`w-24 h-1 ${
                     currentStep > step ? 'bg-health-primary' : 'bg-gray-300'
                   } transition-all duration-500`}></div>
                 )}
               </React.Fragment>
             ))}
           </div>
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 text-xs text-gray-500 dark:text-gray-400 flex w-full justify-between px-6 max-w-md">
-            <span className={`${currentStep >= 1 ? "text-health-primary font-medium" : ""} whitespace-nowrap`}>Patient Info</span>
-            <span className={`${currentStep >= 2 ? "text-health-primary font-medium" : ""} whitespace-nowrap`}>Select Time</span>
-            <span className={`${currentStep >= 3 ? "text-health-primary font-medium" : ""} whitespace-nowrap`}>Payment</span>
+          
+          {/* Step labels positioned correctly below the circles */}
+          <div className="absolute top-16 left-0 right-0 flex justify-center">
+            <div className="flex w-full max-w-md justify-between px-2">
+              {stepLabels.map((label, index) => (
+                <div 
+                  key={index} 
+                  className={`text-center w-24 ${
+                    currentStep >= index + 1 ? "text-health-primary font-medium" : "text-gray-500 dark:text-gray-400"
+                  }`}
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
